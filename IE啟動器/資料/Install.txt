@@ -1,0 +1,16 @@
+@echo off
+title AutoUAC
+color 0B
+PUSHD %~DP0 & cd /d "%~dp0"
+%1 %2
+mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&goto :eof
+:runas
+echo @techarerm
+echo 
+move ie.vbs "C:\Program Files (x86)\Internet Explorer"
+move IE.exe "C:\Program Files (x86)\Internet Explorer"
+FOR /f "usebackq tokens=1,2,*" %%B IN (`REG QUERY "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v Desktop`) DO SET DESKTOPDIR=%%D \\指定桌面路徑
+FOR /F "usebackq delims=" %%i in (`ECHO %DESKTOPDIR%`) DO SET DESKTOPDIR=%%i
+ECHO %DESKTOPDIR%
+move "Internet Explorer.lnk" "%DESKTOPDIR%" \\移動捷徑
+pause
