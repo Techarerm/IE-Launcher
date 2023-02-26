@@ -1,6 +1,10 @@
 # IE-Launcher
 在Windows 11上啟用Internet Explorer
 
+>**警告**:如果你在乎安全性，別用。
+
+
+Windows Defender會誤報，請關閉及時保護，安裝好在開啟。
 
 
 更改啟動首頁:
